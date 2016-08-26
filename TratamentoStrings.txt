@@ -1,0 +1,22 @@
+    23/08/2016  35913   Ramon       Replicação do objeto PVE444
+//Solução aplicada para quando precisa comparar um determinado posicionamento de uma string, com outra string existente no projeto.
+  
+Exemplo abaixo.  
+    If &I = 2 //Mais de um pedido   
+        If Substr(&StringPedidos, 1, 6) = 'Pedido' //Substr(String, posição, até a posição)
+            &StringPedidos = strReplace(&StringPedidos, 'Pedido', 'Pedidos') //Substitui um pedaço de um string, por outra criada.
+            &StringPedidos += ', '
+        EndIF
+    EndIf    
+
+    &StringPedidos += &OrdPedStr
+
+    If &I > 2
+        &StringPedidos += ', '
+    EndIf
+
+EndFor
+
+If &I > 0
+    &StringPedidos += '.'
+Endif
