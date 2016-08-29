@@ -1,0 +1,11 @@
+Quando o cursor em uma coluna no grid que é editável, e as posteriores a esta coluna são apenas de leitura, o sistema não permite com o comando enter e TAB, jogar o cursor para o botão confirmar, devido a limitação.
+
+Solução para este problema:
+
+-Criar uma coluna no grid, com o tamanho char(1)
+-No evento start adicionar o tabIndex do botão confirma, com o grid, exemplo abaixo.
+>>btn_confirma.TabIndex = grid.TabIndex + 1
+
+Com a implementação realizada acima, precisará ser pressionado duas vezes enter e tab, por linha, porém é a unica saída para evitar o bloqueio nessa stuação.
+
+
